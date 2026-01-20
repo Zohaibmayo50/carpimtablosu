@@ -159,6 +159,7 @@ const nextConfig = {
       { source: '/wp-content/uploads/2025/01/Carpim-Tablosu-65-683x1024-1.pdf', destination: '/sayi/65', permanent: true },
       { source: '/wp-content/uploads/2025/01/11li-Carpim-Tablosu-512x1024-1.pdf', destination: '/sayi/11', permanent: true },
       { source: '/wp-content/uploads/2025/01/37-tablosu-1.pdf', destination: '/sayi/37', permanent: true },
+      { source: '/wp-content/uploads/2025/01/37-tablosu-3.pdf', destination: '/sayi/37', permanent: true },
       
       // Redirect WordPress and malformed URLs to homepage
       { source: '/wp-content/:path*', destination: '/', permanent: true },
