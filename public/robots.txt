@@ -2,6 +2,9 @@
 User-agent: *
 Allow: /
 
+# Block Next.js internal assets (no crawl value)
+Disallow: /_next/
+
 # Block malformed and non-existent paths
 Disallow: /sayi/%7B
 Disallow: /sayi/{
