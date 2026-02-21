@@ -12,6 +12,8 @@ Disallow: /wp-includes/
 Disallow: /wp-admin/
 Disallow: /wordpress/
 Disallow: /*.php$
+Disallow: /feed
+Disallow: /comments/feed
 
 # Sitemap location
 Sitemap: https://carpimtablosu.com.tr/sitemap.xml

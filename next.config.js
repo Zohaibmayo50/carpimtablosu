@@ -4,6 +4,13 @@ const nextConfig = {
   trailingSlash: false,
   async redirects() {
     return [
+      // Redirect WordPress leftover URLs
+      { source: '/favicon.ico', destination: '/favicon.svg', permanent: true },
+      { source: '/feed', destination: '/', permanent: true },
+      { source: '/feed/:path*', destination: '/', permanent: true },
+      { source: '/comments/feed', destination: '/', permanent: true },
+      { source: '/comments/feed/:path*', destination: '/', permanent: true },
+
       // Redirect old number page URLs to new /sayi/X format (handles with and without trailing slash)
       { source: '/1li-carpim-tablosu/:path*', destination: '/sayi/1', permanent: true },
       { source: '/2li-carpim-tablosu/:path*', destination: '/sayi/2', permanent: true },
