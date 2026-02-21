@@ -175,6 +175,48 @@ const nextConfig = {
       { source: '/sayi/:slug(.*%7B.*)', destination: '/', permanent: true },
     ];
   },
+  async headers() {
+    return [
+      // Static assets: cache for 1 year on CDN edge
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Images and public files: cache for 1 year
+      {
+        source: '/:path*\\.(jpg|jpeg|png|svg|ico|webp|woff|woff2|ttf)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // All pages: edge cache for 1 hour, serve stale for 24h while revalidating
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, s-maxage=3600, stale-while-revalidate=86400',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+        ],
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig
